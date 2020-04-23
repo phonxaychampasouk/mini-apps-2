@@ -1,7 +1,7 @@
 const path = require('path');
 module.exports = {
     entry: {
-        index: path.join(__dirname, 'client', 'index.jsx')
+        index: [ path.join(__dirname, 'client', 'index.jsx'), 'babel-polyfill' ]
     },
     output: {
         path: path.join(__dirname, 'public'),
@@ -12,9 +12,7 @@ module.exports = {
             {
                 test: /\.jsx|js$/,
                 exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                    loader: ['babel-loader']
             }
         ]
     },
